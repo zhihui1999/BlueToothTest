@@ -8,20 +8,18 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
+
 
 import java.util.Iterator;
 import java.util.Set;
-import java.util.UUID;
 
 import cn.glinks.lib.bt.BluetoothOperationCallback;
 import cn.glinks.lib.bt.BluetoothOperator;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
-    private static final String TAG = "蓝牙test" + MainActivity.class.getSimpleName();
-
-    private static final UUID MY_UUID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
+    private static final String TAG = "蓝牙" + MainActivity.class.getSimpleName();
+    private static final String MAC = "98:D3:41:FD:35:FF";//更改这里的MAC
 
     // Bluetooth
     private boolean hasEnabled = false;
@@ -113,27 +111,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.scan:
-                mBluetoothOp.connect("98:D3:41:FD:35:FF");
-                break;
-            case R.id.on:
-                    mBluetoothOp.write("a".getBytes());
-//                    zhong=textView2.getText().toString();
-//                    textView2.setText(zhong+"a\n");
-                break;
-            case R.id.off:
-                mBluetoothOp.write("d".getBytes());
-//                zhong=textView2.getText().toString();
-//                textView2.setText(zhong+"d\n");
+                mBluetoothOp.connect(MAC);
                 break;
             case R.id.button:
-
                 textView2.setText("");
-
                 break;
             case R.id.send:
                 if (!editText.getText().toString().equals("")){
                     mBluetoothOp.write(editText.getText().toString().getBytes());
-                    // editText.getText()
                 }
 
         }
