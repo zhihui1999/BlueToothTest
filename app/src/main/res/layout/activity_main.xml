@@ -8,81 +8,89 @@
     tools:layout_editor_absoluteY="81dp">
 
     <Button
-        android:id="@+id/scan"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="46dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="45dp"
+        android:id="@+id/jjj"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="19dp"
+        android:layout_marginEnd="61dp"
+        android:text="j"
         android:onClick="onClick"
-        android:text="连接"
-        app:layout_constraintEnd_toStartOf="@+id/textView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="87dp"
-        android:layout_marginBottom="31dp"
-        android:text="未连接"
-        android:textAlignment="center"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/send"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/scan"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/sss"
+        app:layout_constraintTop_toBottomOf="@+id/kkk" />
 
     <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="108dp"
-        android:layout_marginBottom="49dp"
+        android:id="@+id/kkk"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="120dp"
         android:onClick="onClick"
-        android:text="清空"
-        app:layout_constraintBottom_toTopOf="@+id/textView2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/send"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginEnd="44dp"
-        android:layout_marginBottom="16dp"
-        android:singleLine="false"
+        android:text="k"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintStart_toEndOf="@+id/www" />
 
-    <EditText
-        android:id="@+id/editText"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="7dp"
-        android:layout_marginEnd="22dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="@+id/send"
-        app:layout_constraintEnd_toStartOf="@+id/send"
+    <Button
+        android:id="@+id/sss"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="42dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="175dp"
+        android:text="s"
+        android:onClick="onClick"
+        app:layout_constraintEnd_toStartOf="@+id/jjj"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/aaa" />
+
+    <Button
+        android:id="@+id/aaa"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="86dp"
+        android:text="a"
+        android:onClick="onClick"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/ddd"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/send"
+        android:id="@+id/ddd"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="136dp"
+        android:layout_marginBottom="7dp"
+        android:text="d"
+        android:onClick="onClick"
+        app:layout_constraintBottom_toTopOf="@+id/sss"
+        app:layout_constraintEnd_toStartOf="@+id/jjj"
+        app:layout_constraintStart_toEndOf="@+id/aaa" />
+
+    <Button
+        android:id="@+id/scan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
+        android:layout_marginStart="148dp"
+        android:layout_marginTop="52dp"
         android:onClick="onClick"
-        android:text="发送"
-        app:layout_constraintBaseline_toBaselineOf="@+id/button"
-        app:layout_constraintEnd_toStartOf="@+id/button"
-        app:layout_constraintStart_toEndOf="@+id/editText" />
+        android:text="连接"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/www"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="42dp"
+        android:layout_marginEnd="220dp"
+        android:layout_marginBottom="9dp"
+        android:onClick="onClick"
+        android:text="w"
+        app:layout_constraintBottom_toTopOf="@+id/aaa"
+        app:layout_constraintEnd_toStartOf="@+id/kkk"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
