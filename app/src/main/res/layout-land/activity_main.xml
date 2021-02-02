@@ -9,137 +9,105 @@
 
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/stop"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="29dp"
-        android:layout_marginBottom="103dp"
+        android:layout_height="83dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="48dp"
         android:onClick="onClick"
-        android:text="停止"
-        app:layout_constraintBottom_toTopOf="@+id/ddd"
+        android:text="@string/stop"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button3"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/bizhang"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="29dp"
-        android:layout_marginEnd="13dp"
-        android:layout_marginBottom="103dp"
+        android:layout_height="83dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="48dp"
         android:onClick="onClick"
-        android:text="避障"
-        app:layout_constraintBottom_toTopOf="@+id/ddd"
-        app:layout_constraintEnd_toStartOf="@+id/button4"
-        app:layout_constraintStart_toEndOf="@+id/button2"
+        android:text="@string/bizhang"
+        app:layout_constraintEnd_toStartOf="@+id/stop"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/xunji"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="29dp"
-        android:layout_marginEnd="23dp"
-        android:layout_marginBottom="103dp"
+        android:layout_height="81dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="40dp"
         android:onClick="onClick"
-        android:text="寻迹"
-        app:layout_constraintBottom_toTopOf="@+id/aaa"
-        app:layout_constraintEnd_toStartOf="@+id/button3"
-        app:layout_constraintStart_toEndOf="@+id/button"
+        android:text="@string/xunji"
+        app:layout_constraintEnd_toStartOf="@+id/bizhang"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/sss"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="63dp"
-        android:layout_marginEnd="197dp"
-        android:layout_marginBottom="13dp"
-        android:text="s"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="87dp"
+        android:layout_height="81dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/fangxiangs"
         app:layout_constraintEnd_toStartOf="@+id/aaa"
+        app:layout_constraintHorizontal_bias="0.009"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/www" />
 
     <Button
         android:id="@+id/aaa"
-        android:layout_width="88dp"
-        android:layout_height="0dp"
-        android:layout_marginEnd="37dp"
-        android:layout_marginBottom="61dp"
-        android:text="a"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="87dp"
+        android:layout_height="83dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="32dp"
+        android:text="@string/fangxianga"
         app:layout_constraintEnd_toStartOf="@+id/ddd"
-        app:layout_constraintStart_toEndOf="@+id/sss"
-        app:layout_constraintTop_toBottomOf="@+id/button2" />
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <Button
         android:id="@+id/ddd"
         android:layout_width="88dp"
-        android:layout_height="0dp"
-        android:layout_marginEnd="34dp"
-        android:layout_marginBottom="61dp"
-        android:text="d"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="83dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="28dp"
+        android:text="@string/fangxiangd"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/www"
-        app:layout_constraintTop_toBottomOf="@+id/button3" />
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
 
     <Button
         android:id="@+id/www"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="63dp"
-        android:layout_marginEnd="319dp"
-        android:layout_marginBottom="13dp"
-        android:text="w"
-        app:layout_constraintBottom_toTopOf="@+id/sss"
-        app:layout_constraintEnd_toStartOf="@+id/ddd"
+        android:layout_width="88dp"
+        android:layout_height="81dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="36dp"
+        android:text="@string/fangxiangw"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/scan" />
 
     <Button
-        android:id="@+id/button"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="29dp"
-        android:layout_marginEnd="19dp"
-        android:layout_marginBottom="7dp"
-        android:onClick="onClick"
-        android:text="控制"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
-        app:layout_constraintEnd_toStartOf="@+id/button2"
-        app:layout_constraintStart_toEndOf="@+id/scan"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
         android:id="@+id/scan"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="37dp"
-        android:layout_marginEnd="82dp"
-        android:layout_marginBottom="53dp"
+        android:layout_width="wrap_content"
+        android:layout_height="81dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="8dp"
         android:onClick="onClick"
-        android:text="连接"
-        app:layout_constraintBottom_toTopOf="@+id/www"
-        app:layout_constraintEnd_toStartOf="@+id/button"
+        android:text="@string/scan"
+        app:layout_constraintEnd_toStartOf="@+id/xunji"
+        app:layout_constraintHorizontal_bias="0.55"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="0dp"
-        android:layout_height="51dp"
-        android:layout_marginStart="45dp"
-        android:layout_marginEnd="45dp"
-        android:layout_marginBottom="188dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button3"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/sss"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        android:layout_width="218dp"
+        android:layout_height="63dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="148dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

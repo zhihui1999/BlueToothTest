@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">探测者</string>
+    <string name="scan">连接</string>
+    <string name="bizhang">避障</string>
+    <string name="xunji">寻迹</string>
+    <string name="stop">停止</string>
+    <string name="fangxiangw">W</string>
+    <string name="fangxianga">A</string>
+    <string name="fangxiangs">S</string>
+    <string name="fangxiangd">D</string>
 </resources>

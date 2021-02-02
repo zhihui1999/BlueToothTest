@@ -24,9 +24,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private BluetoothAdapter mBluetoothAdapter;
     private TextView textView;
 
-    private Thread w, a, s, d,b;
-    private boolean bw = false, ba = false, bs = false, bd = false,bb=false;//循环
-    private boolean bwf = true, baf = true, bsf = true, bdf = true,bbf=true;//第一次
+    private Thread b;
+    private boolean bb=false,bbf=true,iskong=false;//第一次
 
     /**
      * 蓝牙连接成功回调和接受数据回调
@@ -38,6 +37,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             if (err == 0) {
                 Log.d(TAG, "蓝牙连接成功");
                 Toast.makeText(MainActivity.this, "连接成功,可以开始操作了", Toast.LENGTH_SHORT).show();
+            }else{
+                Log.d(TAG, "onConnect: "+err);
             }
         }
 
@@ -61,8 +62,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mBluetoothOp.registerCallback(callback);
         if (mBluetoothOp.isEnabled())
             hasEnabled = true;
-        initthread();//初始化线程，开启线程
-        initbtclick();//初始化按钮监听，长按监听
+
+        initbtclick();//初始化按钮wasd按钮单击监听，避障按钮线程
 
         textView=(TextView)findViewById(R.id.textView);
 
@@ -116,47 +117,49 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.scan:
+            case R.id.scan:{
                 mBluetoothOp.connect(MAC);//连接蓝牙
-                break;
-            case R.id.button: {
-                bb = false;
-                mBluetoothOp.write("k".getBytes());
+                iskong=false;
+                Log.d(TAG, "onClick: 连接蓝牙");
             }
-            break;
-            case R.id.button2: {
+                break;
+            case R.id.xunji: {
                 bb = false;
                 mBluetoothOp.write("x".getBytes());
+                iskong=false;
             }
             break;
-            case R.id.button3: {
+            case R.id.bizhang: {
                 bb=true;
                 if (bbf) {
                     b.start();
                     bbf=false;
                 }
+                iskong=false;
             }
             break;
-            case R.id.button4: {
+            case R.id.stop: {
                 bb = false;
                 mBluetoothOp.write("t".getBytes());
+                iskong=false;
             }
             break;
         }
     }
 
+
+
     /**
-     * 初始化线程
+     * 初始化按钮wasd按钮单击监听，避障按钮线程
      */
-    void initthread() {
-        Log.d(TAG, "initthread: 线程初始化开始");
+    void initbtclick() {
         b=new Thread(new Runnable() {
             @Override
             public void run() {
                 while(true){
                     if (bb) {
                         try {
-                            Thread.sleep(200);
+                            Thread.sleep(400);
                             mBluetoothOp.write("b".getBytes());
                         } catch (InterruptedException e) {
                             Log.d(TAG, "run: " + e.getLocalizedMessage());
@@ -171,133 +174,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
             }
         });
-        d = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                while (true) {
-                    if (bd) {
-                        try {
-                            Thread.sleep(200);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                            break;
-                        }
-                    } else {
-                        try {
-                            Thread.sleep(200);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                            break;
-                        }
-                        mBluetoothOp.write("d".getBytes());
-                    }
-                }
-            }
-        });
 
-        w = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                while (true) {
-                    if (bw) {
-                        try {
-                            Thread.sleep(200);
-                        } catch (InterruptedException e) {
-                            // TODO Auto-generated catch block
-                            e.printStackTrace();
-                            break;
-                        }
-                    } else {
-                        try {
-                            Thread.sleep(200);
-                        } catch (InterruptedException e) {
-                            // TODO Auto-generated catch block
-                            e.printStackTrace();
-                            break;
-                        }
-                        mBluetoothOp.write("w".getBytes());
-                    }
-                }
-            }
-        });
-
-        a = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                while (true) {
-                    if (ba) {
-                        try {
-                            Thread.sleep(200);
-                        } catch (InterruptedException e) {
-                            // TODO Auto-generated catch block
-                            e.printStackTrace();
-                            break;
-                        }
-                    } else {
-                        try {
-                            Thread.sleep(200);
-                        } catch (InterruptedException e) {
-                            // TODO Auto-generated catch block
-                            e.printStackTrace();
-                            break;
-                        }
-                        mBluetoothOp.write("a".getBytes());
-                    }
-                }
-            }
-        });
-
-        s = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                while (true) {
-                    if (bs) {
-                        try {
-                            Thread.sleep(200);
-                        } catch (InterruptedException e) {
-                            // TODO Auto-generated catch block
-                            e.printStackTrace();
-                            break;
-                        }
-                    } else {
-                        try {
-                            Thread.sleep(200);
-                        } catch (InterruptedException e) {
-                            // TODO Auto-generated catch block
-                            e.printStackTrace();
-                            break;
-                        }
-                        mBluetoothOp.write("s".getBytes());
-                    }
-                }
-            }
-        });
-        Log.d(TAG, "initthread: 线程初始化完毕");
-    }
-
-    /**
-     * 初始化按钮长按监听及wasd按钮单击监听
-     */
-    void initbtclick() {
         Button www = (Button) findViewById(R.id.www);
         www.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Log.d(TAG, "onClick: W短按执行了一次");
-                bw = false;
-                mBluetoothOp.write("w".getBytes());
-            }
-        });
-        www.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View view) {
-                Log.d(TAG, "onLongClick: W长按了一次");
-                bw = true;
-                if (bwf) {
-                    w.start();
-                    bwf = false;
+                if (iskong){
+                    mBluetoothOp.write("w".getBytes());
+                }else{
+                    mBluetoothOp.write("k".getBytes());
+                    iskong=true;
+                    mBluetoothOp.write("w".getBytes());
                 }
-                return false;//true不加onclick   false结尾加个onclick事件
             }
         });
         Button aaa = (Button) findViewById(R.id.aaa);
@@ -305,63 +194,43 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onClick(View view) {
                 Log.d(TAG, "onClick: A短按执行了一次");
-                ba = false;
-                mBluetoothOp.write("a".getBytes());
-            }
-        });
-        aaa.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View view) {
-                Log.d(TAG, "onLongClick: A长按了一次");
-                ba = true;
-                if (baf) {
-                    a.start();
-                    baf = false;
+                if (iskong){
+                    mBluetoothOp.write("a".getBytes());
+                }else{
+                    mBluetoothOp.write("k".getBytes());
+                    iskong=true;
+                    mBluetoothOp.write("a".getBytes());
                 }
-                return false;//true不加onclick   false结尾加个onclick事件
             }
         });
+
         Button sss = (Button) findViewById(R.id.sss);
-        sss.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View view) {
-                Log.d(TAG, "onLongClick: S长按了一次");
-                bs = true;
-                if (bsf) {
-                    s.start();
-                    bsf = false;
-                }
-                return false;//true不加onclick   false结尾加个onclick事件
-            }
-        });
         sss.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Log.d(TAG, "onClick: S短按执行了一次");
-                bs = false;
-                mBluetoothOp.write("s".getBytes());
+                if (iskong){
+                    mBluetoothOp.write("s".getBytes());
+                }else{
+                    mBluetoothOp.write("k".getBytes());
+                    iskong=true;
+                    mBluetoothOp.write("s".getBytes());
+                }
             }
         });
 
         Button ddd = (Button) findViewById(R.id.ddd);
-        ddd.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View view) {
-                Log.d(TAG, "onLongClick: D长按了一次");
-                bd = true;
-                if (bdf) {
-                    d.start();
-                    bdf = false;
-                }
-                return false;//true不加onclick   false结尾加个onclick事件
-            }
-        });
         ddd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Log.d(TAG, "onClick: D短按执行了一次");
-                bd = false;
-                mBluetoothOp.write("d".getBytes());
+                if (iskong){
+                    mBluetoothOp.write("d".getBytes());
+                }else{
+                    mBluetoothOp.write("k".getBytes());
+                    iskong=true;
+                    mBluetoothOp.write("d".getBytes());
+                }
             }
         });
     }
